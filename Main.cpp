@@ -26,6 +26,12 @@ enum PokeType
 	MaxTypes
 };
 
+const char* TypeString[MaxTypes] = 
+{
+	"Normal", "Fire", "Water", "Electric", 
+	"Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", 
+	"Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"
+};
 const float TypeMatrix[MaxTypes][MaxTypes] = 
 { 
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 0.5, 1},
@@ -101,7 +107,7 @@ void CalculateBasePower()
 	std::sort(BasePowerVector.begin(), BasePowerVector.end(), TypePowerCompare);
 	for (int i = 0; i < MaxTypes; i++)
 	{
-		printf("Type %d: BasePower %f \n", BasePowerVector[i].Type, BasePowerVector[i].Power);
+		printf("Type %s: BasePower %f \n", TypeString[BasePowerVector[i].Type], BasePowerVector[i].Power);
 	}		
 }
 
@@ -122,7 +128,7 @@ int main(int argc, char** argv)
 	std::sort(FinalPowerVector.begin(), FinalPowerVector.end(), TypePowerCompare);
 	for (int i = 0; i < MaxTypes; i++)
 	{
-		printf("Type %d: FinalPower %f \n", FinalPowerVector[i].Type, FinalPowerVector[i].Power);
+		printf("Type %s: FinalPower %f \n", TypeString[FinalPowerVector[i].Type], FinalPowerVector[i].Power);
 	}
 
 }
